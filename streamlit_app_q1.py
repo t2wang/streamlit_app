@@ -28,13 +28,8 @@ llmChain = LLMChain(llm=groqChat, prompt=prompt)
 
 # Streamlit UI
 st.title("XYZ Dealership Chatbot")
-st.write("Ask about services at XYZ Dealership, and I'll direct you to the right department!")
-
-inquiry = st.text_input("Enter your inquiry:")
+inquiry = st.text_input("Hi there! How can I help?")
 if st.button("Submit"):
     if inquiry:
         response = llmChain.run(inquiry=inquiry)
-        st.write("### Department:")
         st.write(response)
-    else:
-        st.warning("Please enter an inquiry.")
